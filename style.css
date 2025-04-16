@@ -1,0 +1,505 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+/* Navbar star */
+#navbar {
+  background: #f9f9f9;
+}
+
+#logo {
+  font-size: 36px;
+  font-weight: 550;
+  color: black;
+  text-shadow: 0px 1px 1px black;
+  margin-bottom: 5px;
+}
+
+#logo span {
+  color: #dd2619;
+}
+
+.navbar-toggler span {
+  color: #dd2619;
+}
+
+.navbar-nav {
+  margin-left: 20px;
+}
+
+.nav-item .nav-link {
+  font-size: 16px;
+  font-weight: 550;
+  color: black;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  transition: 0.5s ease;
+}
+
+.nav-item .nav-link:hover {
+  background: rgb(221, 52, 10); 
+}
+
+#navbar form button {
+  background: rgb(221, 52, 10);
+  color: white;
+  border: none;
+}
+/* Navbar end */
+
+/* Home section star */
+.home {
+  width: 100%;
+  height: 90vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
+    url(../image/foto/background\ img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.home .content {
+  text-align: center;
+  padding-top: 200px;
+}
+.home .content h5 {
+  color: white;
+  font-size: 38px;
+  font-weight: 550;
+  text-shadow: 0px 1px 1px black;
+}
+.home .content h1 {
+  color: white;
+  font-size: 70px;
+  font-weight: 550;
+  text-shadow: 0px 1px 1px black;
+  margin-top: 5px;
+}
+.changecontent::after {
+  content: " ";
+  color: #dd2619;
+  text-shadow: 0px 1px 1px black;
+  animation: changetext 10s infinite linear;
+}
+@keyframes changetext {
+  0% {
+    content: "Merapi";
+  }
+  10% {
+    content: "Merbabu";
+  }
+  20% {
+    content: "Sumbing";
+  }
+  30% {
+    content: "Sindoro";
+  }
+  40% {
+    content: "Sumeru";
+  }
+  50% {
+    content: "Ungaran";
+  }
+  60% {
+    content: "Bhismo";
+  }
+  70% {
+    content: "Prau";
+  }
+  80% {
+    content: "Slamet";
+  }
+  90% {
+    content: "Lawu";
+  }
+  100% {
+    content: "Muria";
+  }
+}
+.home .content p {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 0px 1px 1px black;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+.home .content a {
+  padding: 10px;
+  background: white;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 550;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.home .content a:hover {
+  background: #dd2619;
+  color: white;
+}
+@media (max-width: 850px) {
+  .home {
+    background-position: 50%;
+  }
+}
+@media (max-width: 450px) {
+  .home .content h5 {
+    font-size: 25px;
+  }
+  .home .content h1 {
+    font-size: 38px;
+  }
+  .home .content p {
+    font-size: 13px;
+  }
+}
+/* Home section end */
+/* why choose me section start */
+.why-choose-section {
+  width: 100%;
+  background: #f5faff;
+  padding: 60px 0;
+}
+
+.why-container {
+  display: flex;
+  max-width: 1300px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.why-left, .why-middle, .why-right {
+  flex: 1;
+  padding: 40px;
+}
+
+.why-left {
+  background: #fff;
+}
+
+.logo {
+  max-width: 180px;
+  margin-bottom: 20px;
+}
+
+.why-left h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.why-left h2 span {
+  color: #000;
+}
+
+.why-left h2 {
+  color: #3498db;
+}
+
+.why-left p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.why-middle {
+  background: linear-gradient(to bottom, #e1f0fa, #b3d9f7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.why-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.why-feature img {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.why-feature p {
+  color: #003366;
+  font-size: 14px;
+  margin: 0;
+}
+
+.why-right .bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* why choose me  section end */
+/* Section layanan Start */
+.layanan {
+  background: #f9f9f9;
+  padding: 50px;
+}
+.main-text h1 {
+  text-align: center;
+  text-shadow: 0px 1px 1px black;
+  font-weight: 600;
+}
+.main-text h1 span {
+  color: #dd2619;
+}
+.layanan .card {
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px -6px black;
+}
+.layanan .row {
+  margin-top: 30px;
+}
+.layanan form input {
+  padding: 10px;
+  color: black;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px -6px black;
+}
+.layanan form textarea {
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  box-shadow: 0px 5px 5px -6px black;
+  height: 200px;
+}
+.layanan .submit {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 550;
+  background: #dd2619;
+  color: white;
+  margin-top: 10px;
+  transition: 0.5s;
+}
+.layanan .submit:hover {
+  width: 170px;
+}
+@media (max-width: 765px) {
+  .layanan {
+    padding: 0;
+  }
+  .main-text h1 {
+    padding: 20px;
+  }
+}
+/* Section layanan End */
+
+/* Section Packages Start */
+.main-txt h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 600;
+  text-shadow: 0px 1px 1px black;
+}
+.main-txt h1 span {
+  color: #dd2619;
+}
+.packages .card {
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.packages .card img {
+  border-radius: 5px;
+}
+.packages .card .card-body {
+  background: transparent;
+}
+.packages .card .card-body h3 {
+  font-size: 25px;
+  font-weight: 600;
+}
+.packages .card .card-body p {
+  font-size: 15px;
+}
+.checked {
+  color: #dd2619;
+}
+.star i {
+  font-size: 15px;
+}
+.packages .card .card-body h6 {
+  font-size: 20px;
+}
+.packages .card .card-body a {
+  padding: 10px;
+  text-decoration: none;
+  background: #dd2619;
+  color: white;
+  border-radius: 5px;
+}
+/* Section Packages End */
+
+/* Section Services Start */
+.services {
+  background: #f9f9f9;
+  margin-top: 50px;
+}
+.services .card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: none;
+  cursor: pointer;
+}
+.services .card i {
+  font-size: 80px;
+  text-align: center;
+  color: #dd2619;
+  margin-top: 20px;
+}
+.services .card .card-body h3 {
+  font-weight: 600;
+}
+.services .card .card-body {
+  text-align: center;
+}
+/* Section Services End */
+
+/* Section Gallary Start */
+.gallary {
+  margin-top: 50px;
+}
+.gallary .card {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  cursor: pointer;
+}
+.gallary .card img {
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.gallary .card img:hover {
+  transform: scale(1.1);
+}
+/* Section Gallary End */
+
+/* About Start */
+.about {
+  padding: 50px;
+  margin-top: 50px;
+  background: #f9f9f9;
+}
+.about .card {
+  border-radius: 10px;
+}
+.about .card img {
+  border-radius: 10px;
+}
+.about h2 {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.about p {
+  font-weight: 500;
+}
+#about-btn {
+  width: 150px;
+  height: 38px;
+  border: none;
+  border-radius: 5px;
+  background: #dd2619;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 550;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+#about-btn:hover {
+  width: 170px;
+}
+@media (max-width: 765px) {
+  .about {
+    padding: 0;
+  }
+}
+/* About End */
+
+/* Footer Start */
+#footer {
+  width: 100%;
+  margin-top: 150px;
+  text-align: center;
+  background: #f9f9f9;
+}
+#footer h1 {
+  font-weight: 600;
+  padding-top: 30px;
+  text-shadow: 0px 0px 1px black;
+}
+#footer h1 span {
+  color: #dd2619;
+}
+.social-links i {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  background: black;
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.social-links i:hover {
+  background: #dd2619;
+}
+/* Footer End */
+/*popup*/
+/* Popup Styles */
+#promoPopup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.popup-content img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.popup-buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/*popup ends*/
+

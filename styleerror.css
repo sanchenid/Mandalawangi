@@ -1,0 +1,96 @@
+/* Reset & dasar */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffe259, #ffa751);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Container utama */
+  .wrapper {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Icon utama */
+  .icon i {
+    font-size: 100px;
+    color: #ff4d4d;
+    animation: shake 1s infinite alternate;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes shake {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+  }
+  
+  /* Judul dan paragraf */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  /* Gear animasi */
+  .gear {
+    margin-bottom: 20px;
+  }
+  
+  .gear i {
+    font-size: 40px;
+    color: #666;
+    margin: 0 10px;
+  }
+  
+  .spinning {
+    animation: spin 3s linear infinite;
+  }
+  
+  .reverse {
+    animation-direction: reverse;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Tombol kembali */
+  .back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+  
+  .back-btn:hover {
+    background-color: #ff3b2e;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #555;
+  }
+  
