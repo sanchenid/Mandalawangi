@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog MANDALAWANGI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesewa.css" />
+</head>
+<body>
+
+  <nav class="tab-menu">
+    <div class="brand"><strong>MANDALAWANGI</strong></div>
+    <div style="text-align: center; margin: 1rem 0;">
+      <input type="text" id="searchInput" placeholder="🔍 Cari perlengkapan..." oninput="filterCatalog()" style="padding: 0.5rem; width: 80%; max-width: 400px; font-size: 1rem; border-radius: 5px; border: 1px solid #f1f1f1;" />
+    </div>  
+    <div class="tab-links">
+      <a href="index.html" class="tab-item">
+        🏠<span>Beranda</span> <!-- Ikon rumah untuk Beranda -->
+      </a>
+      <a href="trip.html" class="tab-item">
+        🧗‍♂️<span>Jasa Trip</span> <!-- Ikon pemandu pendakian untuk Jasa Trip -->
+      </a>
+      <a href="error.html" class="tab-item">
+        🏕️<span>Rekomendasi</span> <!-- Ikon pakaian untuk Pakaian -->
+      </a>
+      <a href="sewa.html" class="tab-item">
+        👟<span>Sewa Peralatan</span> <!-- Ikon ransel untuk Sewa Peralatan -->
+      </a>
+      <a href="#keranjang" class="tab-item">
+        🛒<span>Keranjang</span> <!-- Ikon keranjang untuk Keranjang -->
+      </a>
+    </div>     
+  </nav>
+  
+  <div class="container">
+    <div id="keranjang">
+      <h2>🛒 Keranjang Pesanan</h2>
+      <label for="days">Lama Sewa (hari):</label>
+      <input type="number" id="days" value="1" min="1" onchange="displayCart()" />
+      <div id="cart-items"></div>
+      <h3 id="total">Total: Rp0</h3>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+    
+  </div>
+  
+
+  <script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyq8QTLCT_jd5SeCl0EZXxZhg2780rREOmeynI-P-QiCBIaVaxXnoLKunvDiYM5tTNL/exec';
+// Ganti dengan URL dari Apps Script
+    const whatsappNumber = "6285799640833";
+    let cart = [];
+
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      displayCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      displayCart();
+    }
+
+    function displayCart() {
+  const cartItems = document.getElementById("cart-items");
+  const totalDisplay = document.getElementById("total");
+  const days = parseInt(document.getElementById("days").value) || 1;
+  cartItems.innerHTML = '';
+  let total = 0;
+
+  cart.forEach((entry, index) => {
+    const subTotal = entry.price * days;
+    total += subTotal;
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        ${entry.item} - Rp${entry.price.toLocaleString()} x ${days} hari = Rp${subTotal.toLocaleString()}
+        <button onclick="removeFromCart(${index})">Hapus</button>
+      </div>
+    `;
+  });
+
+  totalDisplay.innerText = `Total: Rp${total.toLocaleString()}`;
+}
+
+function checkout() {
+  if (cart.length === 0) {
+    alert("Keranjang Anda kosong!");
+    return;
+  }
+
+  const days = parseInt(document.getElementById("days").value) || 1;
+  let message = `Halo Kak! Saya ingin memesan perlengkapan berikut (lama sewa: ${days} hari):%0A`;
+  let total = 0;
+
+  cart.forEach((entry, i) => {
+    const subTotal = entry.price * days;
+    message += `${i + 1}. ${entry.item} - Rp${entry.price.toLocaleString()} x ${days} hari = Rp${subTotal.toLocaleString()}%0A`;
+    total += subTotal;
+  });
+
+  message += `%0ATotal: Rp${total.toLocaleString()}`;
+  const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+  window.open(url, '_blank');
+}
+
+    // Ambil data dari Spreadsheet
+    fetch(scriptURL)
+      .then(response => response.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          renderCatalog(data);
+        } else if (data.data) {
+          renderCatalog(data.data);
+        } else {
+          console.error("Format data tidak dikenali:", data);
+        }
+      })
+      .catch(error => console.error('Gagal mengambil data:', error));
+
+      function renderCatalog(items) {
+  const container = document.querySelector(".container");
+  const kategoriMap = {};
+
+  items.forEach(item => {
+    const status = (item['Status'] || '').toLowerCase();
+    if (status !== 'tersedia') return;
+
+    const kategori = (item['Kategori'] || 'Lainnya').trim().toUpperCase();
+    const gridId = `grid-${kategori.replace(/\s+/g, '-')}`;
+
+    // Buat section kategori jika belum ada
+    if (!kategoriMap[kategori]) {
+      kategoriMap[kategori] = true;
+
+      const sectionTitle = document.createElement("h2");
+      sectionTitle.id = kategori.toLowerCase();
+      sectionTitle.textContent = kategori;
+
+      const sectionGrid = document.createElement("div");
+      sectionGrid.className = "grid";
+      sectionGrid.id = gridId;
+
+      container.insertBefore(sectionTitle, document.getElementById("keranjang"));
+      container.insertBefore(sectionGrid, document.getElementById("keranjang"));
+    }
+
+    const harga = parseInt(item["Harga"]) || 0;
+    const nama = item["Nama Alat"] || "Tanpa Nama";
+    const gambar = item["Gambar"] || "https://via.placeholder.com/300x200?text=No+Image";
+    const keterangan = item["Keterangan"] || "-";
+    const stok = item["Stok"] || "-";
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${gambar}" alt="${nama}">
+      <h3>${nama}</h3>
+      <p><strong>Harga:</strong> Rp${harga.toLocaleString()}</p>
+      <p><strong>Keterangan:</strong> ${keterangan}</p>
+      <p><strong>Stok:</strong> ${stok}</p>
+      <button onclick="addToCart('${nama}', ${harga})">Tambah</button>
+    `;
+
+    document.getElementById(gridId).appendChild(card);
+  });
+}
+function filterCatalog() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(input) ? "block" : "none";
+  });
+}
+
+
+  </script>
+
+</body>
+</html>

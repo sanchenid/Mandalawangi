@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MANDALAWANGI Trip</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    /* NAVBAR / TAB MENU */
+.tab-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradasi biru elegan */
+  padding: 10px 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan bawah */
+  backdrop-filter: blur(6px); /* Efek kaca jika ingin transparan */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.tab-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.tab-item {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.tab-item span {
+  font-size: 0.7rem;
+  margin-top: 2px;
+}
+
+.tab-item:hover {
+  color: #ffcc00;
+}
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      color: #333;
+    }
+
+    .trip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .trip-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trip-images {
+      display: flex;
+      overflow-x: auto;
+    }
+
+    .trip-images img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .trip-info {
+      padding: 15px;
+    }
+
+    .trip-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .trip-desc {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .trip-leader {
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* Popup Styles */
+    #promoPopup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .popup-content img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .popup-buttons {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-ulasan {
+      background-color: #8B4513;
+      color: white;
+    }
+
+    .btn-tolak {
+      background-color: #ddd;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="tab-menu">
+    <div class="brand"><strong>MANDALAWANGI</strong></div>
+    <div class="tab-links">
+      <a href="index.html" class="tab-item">
+        🏠<span>Beranda</span> <!-- Ikon rumah untuk Beranda -->
+      </a>
+      <a href="trip.html" class="tab-item">
+        🧗‍♂️<span>Jasa Trip</span> <!-- Ikon pemandu pendakian untuk Jasa Trip -->
+      </a>
+      <a href="error.html" class="tab-item">
+        🏕️<span>Rekomendasi</span> <!-- Ikon pakaian untuk Pakaian -->
+      </a>
+      <a href="sewa.html" class="tab-item">
+        👟<span>Sewa Peralatan</span> <!-- Ikon ransel untuk Sewa Peralatan -->
+      </a>
+      <a href="#keranjang" class="tab-item">
+        🛒<span>Keranjang</span> <!-- Ikon keranjang untuk Keranjang -->
+      </a>
+    </div>     
+  </nav>
+<h1>Trip Mandalawangi</h1>
+
+<div class="trip-grid">
+  <div class="trip-card">
+    <div class="trip-images">
+      <img src="image/trip/sumbing/beautiful-view-of-mount-sumbing-when-the-weather-is-clear-the-sky-is-blue-with-a-few-clouds-located-in-central-java-indonesia-photo.jpg" alt="Trip 2">
+      <img src="image/trip/sumbing/download (17).jpeg" alt="Trip 2b">
+    </div>
+    <div class="trip-info">
+      <div class="trip-title">Mendaki Gunung Sumbing</div>
+      <div class="trip-desc">Petualangan seru ke puncak Gunung Gede bersama tim profesional.</div>
+      <div class="trip-leader">Dipandu oleh: Kak Guruh dan Kak Esa</div>
+    </div>
+  </div>
+
+  <div class="trip-card">
+    <div class="trip-images">
+      <img src="image/tetebatu view/rapeling.jpg" alt="Trip 2">
+      <img src="image/tetebatu view/panjat tebing (1).jpg" alt="Trip 2b">
+    </div>
+    <div class="trip-info">
+      <div class="trip-title">Panjat Tebing</div>
+      <div class="trip-desc">Panjat tebing aman dan menantang, cocok untuk pemula dan profesional.</div>
+      <div class="trip-leader">Dipandu oleh: Kak Guruh</div>
+    </div>
+  </div>
+</div>
+
+<!-- Popup Promo -->
+<div id="promoPopup">
+  <div class="popup-content">
+    <img src="./image/promo/PopupAds.png" alt="Promo Diskon 20%">
+    <div class="popup-buttons">
+      <button class="btn-ulasan" onclick="window.open('https://www.google.com/maps','_blank')">Ulas Sekarang</button>
+      <button class="btn-tolak" onclick="document.getElementById('promoPopup').style.display='none'">Tidak, Terimakasih</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
